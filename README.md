@@ -1,8 +1,6 @@
 <h1 align="center">Pryzm</h1>
 
-> Pryzm bir Cosmos Hub'ı, donanım yaptığım ayarlardan ötürü oldukça düşük şimdilik, ayrı sunucu temin etmedim sizde öyle yapın.
-
-> Bana gelen kuşlar teşvikli dedi - siz kendi araştırmanızı yapınız net bilgi yok.
+> Pryzm bir Cosmos Hub'ı dır, donanım gereksinimleri Rues tarafından optimize dilmiştir ve daha düşük ihtiyaçları vardır. Şimdilik ayrı bir sunucu sunucu temin etmeye gerek yok, az güç gerektiren diğer nodlarınızla beraber, docker kurulumu olmayan sunucularınızda kullanabilirsiniz.
 
 > Fena olmayan bir proje ama sadetinde bir hub - haliyle ezbere bildiğim için 2 dakikada kurdum node'u, arkada çalışsın.
 
@@ -132,8 +130,8 @@ sudo systemctl restart pryzmd && sudo journalctl -u pryzmd -f
 <h1 align="center">Validator kurulumu</h1>
 
 ```console
-# cüzdan oluşturalım - rues kısmını cüzdan adınızla değiştirin
-pryzmd keys add rues
+# cüzdan oluşturalım - sandworm kısmını cüzdan adınızla değiştirin
+pryzmd keys add sandworm
 # cüzdan bilgileriniz kaydedin lütfen
 
 # çıktıda en altta false yazıyorsa devam edin yazmıyorsa bir kaç dakika bekleyin.
@@ -149,16 +147,16 @@ pryzmd status 2>&1 | jq .SyncInfo
 pryzmd tx staking create-validator \
 --amount 1000000upryzm \
 --pubkey $(pryzmd tendermint show-validator) \
---moniker "Rues" \
+--moniker "Sandworm" \
 --identity "128462B2F5F8552F" \
 --details "Rues Community" \
---website "https://github.com/ruesandora" \
+--website "https://github.com/arrakissand" \
 --chain-id indigo-1 \
 --commission-rate 0.1 \
 --commission-max-rate 0.20 \
 --commission-max-change-rate 0.03 \
 --min-self-delegation 1 \
---from rues \
+--from pyr*********0 \
 --gas-adjustment 1.5 \
 --gas auto \
 --gas-prices 0.015upryzm \
